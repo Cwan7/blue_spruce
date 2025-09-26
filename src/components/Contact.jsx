@@ -58,7 +58,7 @@ export default function Contact() {
 
 
   return (
-    <section id="contact" className="section">
+    <section id="contact" style={styles.container}>
       <h1>Contact Us!</h1>
       <div style={styles.forumContainer}>
         <form onSubmit={handleSubmit}>
@@ -151,11 +151,14 @@ export default function Contact() {
   );
 }
 const styles = {
+    container: {
+        
+    },
     forumContainer: {
       maxWidth: '500px',
       margin: '0 auto',
       padding: '20px',
-      backgroundColor: '#7dc1c4',
+      backgroundColor: '#7bc2c5',
       borderRadius: '8px',
       boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
     },
@@ -187,8 +190,8 @@ const styles = {
       resize: 'vertical',
     },
     button: {
-      backgroundColor: '#60a8b8',
-      color: '#fff',
+      backgroundColor: '#cdcdcd',
+      color: '#000',
       padding: '10px 20px',
       border: 'none',
       borderRadius: '4px',

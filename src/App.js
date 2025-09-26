@@ -85,7 +85,7 @@ const styles = {
   },
   quoteButton: {
     marginRight: '24px',   
-    backgroundColor: '#7dc1c4',
+    backgroundColor: '#7bc2c5',
     color: 'white',
     border: 'none',
     padding: '10px 18px',

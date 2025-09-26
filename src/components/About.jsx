@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import {motion, useInView} from "framer-motion";
 
 export default function About() {
   const [startIndex, setStartIndex] = useState(0);
   const cardsPerPage = 4;
+  const [hover, setHover] = useState(false);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false, margin: "-100px 0px -100px 0px" });
 
   const reviews = [
     {
@@ -134,14 +138,26 @@ export default function About() {
             know your time matters—call today for fast, reliable copier solutions.
             </p>
             <button
-            style={styles.contactButton}
+            style={{...styles.contactButton,
+                backgroundColor: hover
+                ? styles.contactButtonHover.backgroundColor
+                : styles.contactButton.backgroundColor,
+            }}
+            onMouseEnter={() => setHover(true)}
+            onMouseLeave={() => setHover(false)}
             onClick={() => window.location.href = "tel:+13035551234"}
+            
             >
-            Call Us: (303) 555-1234
+            Call Us: (720) 641-1178
             </button>
         </div>
-        <div style={styles.clipartContainer1}>
-            
+        <motion.div
+            ref={ref} // Attach ref to track visibility
+            style={styles.clipartContainer1}
+            initial={{ x: "100%" }} // Start off-screen
+            animate={isInView ? { x: 0 } : { x: "100%" }} // Animate based on visibility
+            transition={{ duration: 0.8, ease: "easeOut" }} // Smooth transition
+            >
             <div style={styles.clipartContainer2}>
                 <img
                 src="/clipart.png"
@@ -149,16 +165,22 @@ export default function About() {
                 style={styles.clipart}
                 />
             </div>
-        </div>
+        </motion.div>
        
       </div>
       <div style={styles.reviewsContainer}>
-        <h3>What our customers say</h3>
+        <h3 style={styles.reviewsTitle}>What our customers say</h3>
         <div style={styles.carouselWrapper}>
             <button onClick={handlePrev} style={styles.arrow}>‹</button>
             <div style={styles.grid}>
             {visibleReviews.map((rev) => (
-                <div key={rev.id} style={styles.card}>
+                <div key={rev.id} 
+                style={styles.card}
+                onMouseEnter={(e) => (e.currentTarget.style.outline = '3px solid white', 
+                    e.currentTarget.style.boxShadow = "0 4px 8px rgba(0,0,0,0.9)")}
+                onMouseLeave={(e) => (e.currentTarget.style.outline = '',
+                    e.currentTarget.style.boxShadow = "0 4px 8px rgba(0,0,0,0.2)")}
+                >
                 <div
                     style={{
                     ...styles.profileCircle,
@@ -190,6 +212,12 @@ export default function About() {
             </div>
             <button onClick={handleNext} style={styles.arrow}>›</button>
         </div>
+        <button
+            onClick={() => window.open('https://search.google.com/local/writereview?placeid=ChIJKwU-Sv5_bIcRJETEq9fZcQ0', '_blank')}
+            style={styles.reviewButton}
+            >
+            Leave a Review!
+        </button>
       </div>
     </section>
   );
@@ -243,7 +271,7 @@ const styles = {
     marginBottom: "20px",
   },
   contactButton: {
-    backgroundColor: "#60a8b8",
+    backgroundColor: "#4263bb",
     color: "#fff",
     padding: "10px 20px",
     border: "none",
@@ -263,8 +291,8 @@ const styles = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    
     minHeight: "300px",
+    position: "relative",
   },
   clipartContainer2: {
     width: "300px",
@@ -276,13 +304,18 @@ const styles = {
     backgroundColor: "#f0f0f0",
   },
   clipart: {
-    width: "350px", // Larger than the container
+    width: "350px",
     height: "350px",
   },
   reviewsContainer: {
-    backgroundColor: "#a3a3a3",
+    background: "linear-gradient(to bottom, #ffffff 0%, #cdcdcd 100%)",
     paddingBottom: 30,
     paddingTop: 1,
+  },
+  reviewsTitle: {
+    fontFamily: "'Georgia', serif",
+    fontSize: "2em",
+    color: "#2c3e50",
   },
   carouselWrapper: {
     display: "flex",
@@ -301,8 +334,9 @@ const styles = {
     backgroundColor: "#fff",
     padding: "20px",
     borderRadius: "12px",
-    boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+    boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
     textAlign: "center",
+    
   },
   profileCircle: {
     width: 60,
@@ -348,5 +382,15 @@ const styles = {
     cursor: "pointer",
     padding: "20px",
     color: "#333",
+  },
+  reviewButton: {
+    backgroundColor: "#4263bb",
+    color: "#fff",
+    padding: "10px 20px",
+    border: "none",
+    borderRadius: "5px",
+    fontSize: "1em",
+    cursor: "pointer",
+    marginTop: "15px",
   },
 };
