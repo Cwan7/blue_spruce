@@ -45,7 +45,7 @@ const styles = {
     position: 'fixed',
     top: 0,
     left: 0,
-    right: 0,             // ensure header spans full width
+    right: 0, 
     display: 'flex',
     alignItems: 'center',
     padding: '10px 12px', // horizontal padding
@@ -85,7 +85,7 @@ const styles = {
   },
   quoteButton: {
     marginRight: '24px',   
-    backgroundColor: '#60a8b8',
+    backgroundColor: '#7dc1c4',
     color: 'white',
     border: 'none',
     padding: '10px 18px',

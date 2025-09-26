@@ -1,11 +1,20 @@
-import React from "react";
-import Slider from "react-slick";
+import React, { useState } from "react";
 
 export default function About() {
-  // Fake reviews (replace with your real ones)
+  const [startIndex, setStartIndex] = useState(0);
+  const cardsPerPage = 4;
+
   const reviews = [
     {
       id: 1,
+      author: "Conor W",
+      rating: 5,
+      date: "2025-04-28",
+      profilePhoto: '/cowboy_conor.jpeg',
+      text: "The service Blue Spruce Concepts provides is above and beyond. Never going back! Thanks for always being on call and helping in a pinch.",
+    },
+    {
+      id: 2,
       author: "Rocky Mountain Law",
       rating: 5,
       date: "2025-07-02",
@@ -13,7 +22,7 @@ export default function About() {
       text: "Very knowledgeable and friendly staff. They was able to provide us with a great new printer and at a low cost. The delivery and set up was fast, allowing us to get back to business in a flash. Further, instead of just handing us a manual and leaving, Dennis provided us with a personal and impressively detailed explanation of the printer's functions. We couldn't be happier with our new machine and look forward to working with Blue Spruce Concepts in the future.",
     },
     {
-      id: 2,
+      id: 3,
       author: "Ken DeLucas",
       rating: 5,
       date: "2025-06-15",
@@ -21,7 +30,15 @@ export default function About() {
       text: "Blue Spruce Concepts has provided for all of our copier needs for the last 15 years. Dennis has set us up for guaranteed 100% uptime with their excellent service and support, and a back up production copier. These two copiers are also serve as printers on our network, and they also fax and scan all types of documents with ease. I highly recommend Blue Spruce Concepts to any company, and especially those that cannot tolerate any downtime on their copiers.",
     },
     {
-      id: 3,
+      id: 4,
+      author: "Genny K",
+      rating: 5,
+      date: "2025-04-28",
+      profilePhoto: '/flower_genny.jpg',
+      text: "Totally recommend, always answers the phone and ready to help!",
+    },
+    {
+      id: 5,
       author: "Darla Espinoza",
       rating: 5,
       date: "2025-05-20",
@@ -29,7 +46,7 @@ export default function About() {
       text: "I have worked with Blue Spruce and am a loyal customer. They always provide great value, great machines, excellent service and I have every intention of remaining with them indefinitely. I DEFINITELY recommend Blue Spruce 100%.",
     },
     {
-      id: 4,
+      id: 6,
       author: "Michelle B",
       rating: 5,
       date: "2025-05-10",
@@ -37,28 +54,12 @@ export default function About() {
       text: "Dennis is very, very helpful! I have a copy machine older than dirt and NO ONE was willing to even come take a look at it, but Dennis did. He's kind, patient, fair and honest. I will use him again in the future!",
     },
     {
-      id: 5,
+      id: 7,
       author: "Kimberly Lunacek",
       rating: 5,
       date: "2025-04-28",
       profilePhoto: '/beach-reviews.jpeg',
       text: "Dennis, Shelley, and DJ are such nice people! They all make you feel so welcome and at home in their shop ... very cozy and comfortable.",
-    },
-    {
-      id: 6,
-      author: "Briant Cummings",
-      rating: 5,
-      date: "2025-04-28",
-      profilePhoto: null,
-      text: "Awesome service. Thank you",
-    },
-    {
-      id: 7,
-      author: "Briant Cummings",
-      rating: 5,
-      date: "2025-04-28",
-      profilePhoto: null,
-      text: "Awesome service. Thank you",
     },
     {
       id: 8,
@@ -70,30 +71,39 @@ export default function About() {
     },
     {
       id: 9,
-      author: "Briant Cummings",
+      author: "Gabriel F",
       rating: 5,
       date: "2025-04-28",
       profilePhoto: null,
-      text: "Awesome service. Thank you",
+      text: "Great friendly family business. Over 30 years of experience! This is the place to go if you need a copier machine!",
     },
     {
       id: 10,
-      author: "Conor Wantuch",
+      author: "Tascosa Raton",
       rating: 5,
       date: "2025-04-28",
       profilePhoto: null,
-      text: "The service Blue Spruce Concepts provides is above and beyond. Never going back! Thanks for always being on call and helping in a pinch.",
+      text: "Down right great home service, great people and doing it in the Denver Jungle.",
     },
-    
+    {
+      id: 11,
+      author: "Christian Guillermo",
+      rating: 5,
+      date: "2025-04-28",
+      profilePhoto: null,
+      text: "Thank you!",
+    },
   ];
-
-  const sliderSettings = {
-    infinite: true,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    arrows: true,
-    responsive: [],
+  const handlePrev = () => {
+    setStartIndex((prev) => (prev - cardsPerPage + reviews.length) % reviews.length);
   };
+  const handleNext = () => {
+    setStartIndex((prev) => (prev + cardsPerPage) % reviews.length);
+  };
+  const visibleReviews = reviews.slice(startIndex, startIndex + cardsPerPage);
+  if (visibleReviews.length < cardsPerPage) {
+    visibleReviews.push(...reviews.slice(0, cardsPerPage - visibleReviews.length));
+  }
 
   const getRandomColor = (name) => {
   let hash = 0;
@@ -106,7 +116,6 @@ export default function About() {
 
   return (
     <section id="about" className="section">
-      {/* Logo at top */}
       <div style={styles.logoContainer}>
         <img
           src="/BlueSpruceLogoWords.png"
@@ -114,20 +123,56 @@ export default function About() {
           style={styles.logo}
         />
       </div>
-
-      <h2>About Us</h2>
-      <p>This is the about section of our website.</p>
-
-      {/* Reviews carousel */}
-      <h3 style={{ marginTop: "40px" }}>What our customers say</h3>
-      <div style={styles.carouselWrapper}>
-        <Slider {...sliderSettings}>
-            {reviews.map((rev) => (
-            <div key={rev.id}>
-                <div style={styles.cardContent}>
-                <div style={{ ...styles.profileCircle, backgroundColor: rev.profilePhoto ? 'transparent' : getRandomColor(rev.author) }}>
+      <div style={styles.container}>
+        <div style={styles.bioContainer}>
+            <h2 style={styles.bioTitle}>Family-Owned and Operated</h2>
+            <p style={styles.bioText}>
+            Blue Spruce Concepts Inc. has been Englewood’s copier experts for over 35
+            years. We sell new, pre-owned, and lease options to fit your business
+            needs. Need service? Our technicians deliver same- or next-day copier
+            repairs and supplies to keep you running. As a small business ourselves, we
+            know your time matters—call today for fast, reliable copier solutions.
+            </p>
+            <button
+            style={styles.contactButton}
+            onClick={() => window.location.href = "tel:+13035551234"}
+            >
+            Call Us: (303) 555-1234
+            </button>
+        </div>
+        <div style={styles.clipartContainer1}>
+            
+            <div style={styles.clipartContainer2}>
+                <img
+                src="/clipart.png"
+                alt="copier clipart"
+                style={styles.clipart}
+                />
+            </div>
+        </div>
+       
+      </div>
+      <div style={styles.reviewsContainer}>
+        <h3>What our customers say</h3>
+        <div style={styles.carouselWrapper}>
+            <button onClick={handlePrev} style={styles.arrow}>‹</button>
+            <div style={styles.grid}>
+            {visibleReviews.map((rev) => (
+                <div key={rev.id} style={styles.card}>
+                <div
+                    style={{
+                    ...styles.profileCircle,
+                    backgroundColor: rev.profilePhoto
+                        ? "transparent"
+                        : getRandomColor(rev.author),
+                    }}
+                >
                     {rev.profilePhoto ? (
-                    <img src={rev.profilePhoto} alt={`${rev.author}'s photo`} style={styles.profileImage} />
+                    <img
+                        src={rev.profilePhoto}
+                        alt={rev.author}
+                        style={styles.profileImage}
+                    />
                     ) : (
                     <span style={styles.initial}>{rev.author.charAt(0)}</span>
                     )}
@@ -135,12 +180,16 @@ export default function About() {
                 <div style={styles.textContent}>
                     <strong style={styles.author}>{rev.author}</strong>
                     <div style={styles.rating}>{"★".repeat(rev.rating)}</div>
-                    <p style={styles.text}>{rev.text.substring(0, 100)} {rev.text.length > 100 ? "..." : ""}</p>
+                    <p style={styles.text}>
+                    {rev.text.substring(0, 100)}
+                    {rev.text.length > 100 ? "..." : ""}
+                    </p>
                 </div>
                 </div>
-            </div>
             ))}
-        </Slider>
+            </div>
+            <button onClick={handleNext} style={styles.arrow}>›</button>
+        </div>
       </div>
     </section>
   );
@@ -158,24 +207,102 @@ const styles = {
   logo: {
     height: "150px",
   },
-  carouselWrapper: {
-    margin: "20px auto",
-    width: "90%",
-    maxWidth: "1200px",
-  },
-  cardContent: {
-    backgroundColor: "#ffffff",
-    borderRadius: "12px",
-    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-    padding: "20px",
-    margin: "5px",
-    height: "280px",
+  container: {
     display: "flex",
-    flexDirection: "column",
-    justifyContent: "center", // Center content vertically
-    alignItems: "center", // Center horizontally
-    boxSizing: "border-box",
-    border: "2px solid #ddd",
+    justifyContent: "space-evenly",
+    alignItems: "stretch", 
+    maxWidth: "1600px",
+    margin: "0 auto",
+    padding: "20px",
+    gap: "30px",
+    minHeight: "300px", 
+  },
+  bioContainer: {
+    flex: 1,
+    flexBasis: "50%", 
+    padding: "20px",
+    backgroundColor: "#f9f9f9",
+    borderRadius: "8px",
+    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+    textAlign: "center",
+    maxWidth: '600px',
+  },
+  bioTitle: {
+    fontFamily: "'Georgia', serif",
+    fontSize: "2em",
+    color: "#2c3e50",
+    marginBottom: "15px",
+    fontWeight: "bold",
+    textTransform: "uppercase",
+    letterSpacing: "1px",
+  },
+  bioText: {
+    fontSize: "1.1em",
+    color: "#666",
+    lineHeight: "1.6",
+    marginBottom: "20px",
+  },
+  contactButton: {
+    backgroundColor: "#60a8b8",
+    color: "#fff",
+    padding: "10px 20px",
+    border: "none",
+    borderRadius: "5px",
+    fontSize: "1em",
+    cursor: "pointer",
+    textDecoration: "none",
+    transition: "background-color 0.3s",
+  },
+  contactButtonHover: {
+    backgroundColor: "#4d8a96",
+  },
+  clipartContainer1: {
+    flex: 1,
+    flexBasis: "50%",
+    padding: "20px",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    
+    minHeight: "300px",
+  },
+  clipartContainer2: {
+    width: "300px",
+    height: "300px",
+    borderRadius: "50%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#f0f0f0",
+  },
+  clipart: {
+    width: "350px", // Larger than the container
+    height: "350px",
+  },
+  reviewsContainer: {
+    backgroundColor: "#a3a3a3",
+    paddingBottom: 30,
+    paddingTop: 1,
+  },
+  carouselWrapper: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: "20px",
+    width: "100%",
+  },
+  grid: {
+    display: "grid",
+    gridTemplateColumns: "repeat(4, 1fr)",
+    gap: "20px",
+    width: "80%",
+  },
+  card: {
+    backgroundColor: "#fff",
+    padding: "20px",
+    borderRadius: "12px",
+    boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+    textAlign: "center",
   },
   profileCircle: {
     width: 60,
@@ -184,7 +311,7 @@ const styles = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    marginBottom: "10px",
+    margin: "0 auto 10px",
     overflow: "hidden",
   },
   profileImage: {
@@ -199,25 +326,27 @@ const styles = {
   },
   textContent: {
     textAlign: "center",
-    width: "100%",
   },
   author: {
     fontSize: "1.1em",
     fontWeight: "bold",
     color: "#333",
-    marginBottom: "5px",
   },
   rating: {
     color: "#f5b50a",
     fontSize: "1.2em",
-    marginBottom: "10px",
+    margin: "5px 0",
   },
   text: {
-    fontSize: "12px",
-    lineHeight: "1.4",
+    fontSize: "0.9em",
     color: "#444",
-    overflow: "hidden",
-    textOverflow: "ellipsis",
-    maxHeight: "120px",
+  },
+  arrow: {
+    background: "none",
+    border: "none",
+    fontSize: "4rem",
+    cursor: "pointer",
+    padding: "20px",
+    color: "#333",
   },
 };
