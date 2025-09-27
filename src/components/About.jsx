@@ -5,6 +5,7 @@ export default function About() {
   const [startIndex, setStartIndex] = useState(0);
   const cardsPerPage = 4;
   const [hover, setHover] = useState(false);
+  const [reviewHover, setReviewHover] = useState(false);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false, margin: "-100px 0px -100px 0px" });
 
@@ -131,7 +132,7 @@ export default function About() {
         <div style={styles.bioContainer}>
             <h2 style={styles.bioTitle}>Family-Owned and Operated</h2>
             <p style={styles.bioText}>
-            Blue Spruce Concepts Inc. has been Englewood’s copier experts for over 35
+            Blue Spruce Concepts Inc. has been Denver's metro area copier experts for over 35
             years. We sell new, pre-owned, and lease options to fit your business
             needs. Need service? Our technicians deliver same- or next-day copier
             repairs and supplies to keep you running. As a small business ourselves, we
@@ -214,7 +215,14 @@ export default function About() {
         </div>
         <button
             onClick={() => window.open('https://search.google.com/local/writereview?placeid=ChIJKwU-Sv5_bIcRJETEq9fZcQ0', '_blank')}
-            style={styles.reviewButton}
+            style={{
+                ...styles.reviewButton,
+                backgroundColor: reviewHover
+                ? '#4d8a96' 
+                : styles.reviewButton.backgroundColor, 
+            }}
+            onMouseEnter={() => setReviewHover(true)}
+            onMouseLeave={() => setReviewHover(false)}
             >
             Leave a Review!
         </button>
@@ -241,9 +249,10 @@ const styles = {
     alignItems: "stretch", 
     maxWidth: "1600px",
     margin: "0 auto",
-    padding: "20px",
+    padding: "60px",
     gap: "30px",
     minHeight: "300px", 
+    // border: '1px solid black'
   },
   bioContainer: {
     flex: 1,
@@ -251,9 +260,10 @@ const styles = {
     padding: "20px",
     backgroundColor: "#f9f9f9",
     borderRadius: "8px",
-    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.3)",
     textAlign: "center",
     maxWidth: '600px',
+    // border: '1px solid black'
   },
   bioTitle: {
     fontFamily: "'Georgia', serif",
@@ -293,6 +303,7 @@ const styles = {
     alignItems: "center",
     minHeight: "300px",
     position: "relative",
+    // border: '1px solid black'
   },
   clipartContainer2: {
     width: "300px",
@@ -311,6 +322,7 @@ const styles = {
     background: "linear-gradient(to bottom, #ffffff 0%, #cdcdcd 100%)",
     paddingBottom: 30,
     paddingTop: 1,
+    // border: '1px solid black'
   },
   reviewsTitle: {
     fontFamily: "'Georgia', serif",
@@ -323,12 +335,14 @@ const styles = {
     justifyContent: "center",
     marginTop: "20px",
     width: "100%",
+    // border: '1px solid black'
   },
   grid: {
     display: "grid",
     gridTemplateColumns: "repeat(4, 1fr)",
     gap: "20px",
     width: "80%",
+    // border: '1px solid black'
   },
   card: {
     backgroundColor: "#fff",
