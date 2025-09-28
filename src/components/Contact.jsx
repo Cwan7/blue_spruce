@@ -10,8 +10,8 @@ export default function Contact() {
     zipCode: "",
     message: "",
   });
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: false, margin: "-100px 0px -100px 0px" });
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: false, margin: "-100px" });
 
   const handleForum = (e) => {
     const { name, value } = e.target;
@@ -61,14 +61,15 @@ export default function Contact() {
 
 
   return (
-    <section id="contact" style={styles.container}>
-        <motion.div
-            ref={ref} // Attach ref to track visibility
-            style={styles.leftContainer}
-            initial={{ x: "-100%" }} // Start off-screen
-            animate={isInView ? { x: 0, y: 0 } : { x: 0 }} // Animate based on visibility
-            transition={{ duration: .5, ease: "easeOut" }} // Smooth transition
-            >
+    <motion.section
+      ref={sectionRef}
+      id="contact"
+      style={styles.container}
+      initial={{ opacity: 0 }} // Start invisible
+      animate={isInView ? { opacity: 1 } : { opacity: 0 }} // Fade in when in view, fade out when out
+      transition={{ duration: 1, ease: "easeInOut" }} // Smooth fade
+    >
+        <div style={styles.leftContainer}>
             <h1 style={styles.h1}>Contact Us!</h1>
             <div style={styles.forumContainer}>
                 <form onSubmit={handleSubmit}>
@@ -157,7 +158,7 @@ export default function Contact() {
                 </button>
                 </form>
             </div>
-        </motion.div>
+        </div>
         <div style={styles.rightContainer}>
             <h1 style={styles.h1}>Stop By!</h1>
             <iframe
@@ -170,7 +171,7 @@ export default function Contact() {
                 loading="lazy"
             ></iframe>
         </div>
-    </section>
+    </motion.section>
   );
 }
 const styles = {
