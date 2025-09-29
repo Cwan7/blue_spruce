@@ -61,13 +61,14 @@ export default function Contact() {
 
 
   return (
+    <div style={styles.gradientContainer}>
     <motion.section
       ref={sectionRef}
       id="contact"
       style={styles.container}
-      initial={{ opacity: 0 }} // Start invisible
-      animate={isInView ? { opacity: 1 } : { opacity: 0 }} // Fade in when in view, fade out when out
-      transition={{ duration: 1, ease: "easeInOut" }} // Smooth fade
+      initial={{ opacity: 0 }} 
+      animate={isInView ? { opacity: 1 } : { opacity: 0 }} 
+      transition={{ duration: 1, ease: "easeInOut" }} 
     >
         <div style={styles.leftContainer}>
             <h1 style={styles.h1}>Contact Us!</h1>
@@ -172,35 +173,39 @@ export default function Contact() {
             ></iframe>
         </div>
     </motion.section>
+    </div>
   );
 }
 const styles = {
+    gradientContainer: {
+      background: "linear-gradient(to bottom, #cdcdcd 0%, #ffffff 100%)",
+    },
     container: {
         display: "flex",
         flexDirection: "row",
         minHeight: "500px",
     },
     rightContainer: {
-        flex: 1,
-        padding: '20px',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: "center",
+      flex: 1,
+      padding: '20px',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: "center",
     },
     leftContainer: {
-        flex: 1,
-        padding: "20px 40px",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
+      flex: 1,
+      padding: "20px 40px",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
     },
     map: {
-        flex: 1,
-        width: '100%',
-        border: 0,
-        borderRadius: '8px',
-        maxWidth: '600px',
+      flex: 1,
+      width: '100%',
+      border: 0,
+      borderRadius: '8px',
+      maxWidth: '600px',
     },
     forumContainer: {
       maxWidth: '600px',

@@ -19,6 +19,7 @@ const items = [
   ];
 
   return (
+    <div style={styles.gradientContainer}>
     <motion.section
       ref={sectionRef}
       id="services"
@@ -78,9 +79,13 @@ const items = [
         </div>
       </div>
     </motion.section>
+    </div>
   );
 }
 const styles = {
+  gradientContainer: {
+      background: "linear-gradient(to bottom, #ffffff 0%, #cdcdcd 100%)",
+    },
   container: {
     display: 'flex',
     flexDirection: 'row',

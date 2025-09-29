@@ -1,40 +1,100 @@
 import React from 'react';
 import { Link } from 'react-scroll';
+import { BrowserRouter, Route, Routes, useLocation} from "react-router-dom";
 import About from './components/About';
 import Contact from './components/Contact';
 import Services from './components/Services';
 import Products from './components/Products';
+import Footer from './components/Footer';
+import Privacy from './components/Privacy';
+import Terms from './components/Terms';
+
 import './App.css';
+
+function AppContent() {
+  const location = useLocation();
+  const hideHeaderFooter = location.pathname === "/privacy" || location.pathname === "/terms";
+
+  return (
+    <div className="App">
+      {!hideHeaderFooter && (
+        <header style={styles.header}>
+          <div style={styles.iconContainer}>
+            <img
+              src="/BlueSpruceIcon.jpg"
+              alt="Blue Spruce Icon"
+              style={styles.icon}
+            />
+          </div>
+          <div style={styles.navWrapper}>
+            <nav style={styles.nav}>
+              <Link
+                to="about"
+                smooth={true}
+                duration={500}
+                spy={true}
+                style={styles.navLink}
+                activeStyle={styles.navLinkActive}
+                offset={-80}
+              >
+                About
+              </Link>
+              <Link
+                to="contact"
+                smooth={true}
+                duration={500}
+                spy={true}
+                style={styles.navLink}
+                activeStyle={styles.navLinkActive}
+                offset={-80}
+              >
+                Contact
+              </Link>
+              <Link
+                to="services"
+                smooth={true}
+                duration={500}
+                spy={true}
+                style={styles.navLink}
+                activeStyle={styles.navLinkActive}
+                offset={-80}
+              >
+                Services
+              </Link>
+              <Link
+                to="products"
+                smooth={true}
+                duration={500}
+                spy={true}
+                style={styles.navLink}
+                activeStyle={styles.navLinkActive}
+                offset={-80}
+              >
+                Products
+              </Link>
+            </nav>
+          </div>
+          <button style={styles.quoteButton}>Get a Quote</button>
+        </header>
+      )}
+
+      <main>
+        <Routes>
+          <Route path="/" element={<><About /><Contact /><Services /><Products /></>} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
+        </Routes>
+        {!hideHeaderFooter && <Footer />}
+      </main>
+    </div>
+  );
+}
 
 function App() {
   return (
-    <div className="App">
-      <header style={styles.header}>
-        <div style={styles.iconContainer}>
-          <img
-            src="/BlueSpruceIcon.jpg"
-            alt="Blue Spruce Icon"
-            style={styles.icon}
-          />
-        </div>
-        <div style={styles.navWrapper}>
-          <nav style={styles.nav}>
-            <Link to="about" smooth={true} duration={500} spy={true} style={styles.navLink} activeStyle={styles.navLinkActive} offset={-80} >About</Link>
-            <Link to="contact" smooth={true} duration={500} spy={true} style={styles.navLink} activeStyle={styles.navLinkActive} offset={-80} >Contact</Link>
-            <Link to="services" smooth={true} duration={500} spy={true} style={styles.navLink} activeStyle={styles.navLinkActive} offset={-80} >Services</Link>
-            <Link to="products" smooth={true} duration={500} spy={true} style={styles.navLink} activeStyle={styles.navLinkActive} offset={-80} >Products</Link>
-          </nav>
-        </div>
-        <button style={styles.quoteButton}>Get a Quote</button>
-      </header>
-
-      <main>
-        <About />
-        <Contact />
-        <Services />
-        <Products />
-      </main>
-    </div>
+    <BrowserRouter>
+      <AppContent />
+    </BrowserRouter>
   );
 }
 
