@@ -241,7 +241,7 @@ const styles = {
     marginBottom: "20px",
   },
   logo: {
-    height: "150px",
+    height: "250px",
   },
   container: {
     display: "flex",
