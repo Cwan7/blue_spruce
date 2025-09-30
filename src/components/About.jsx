@@ -128,15 +128,22 @@ export default function About() {
           style={styles.logo}
         />
       </div>
+      <div style={styles.dontSign}>
+        <span style={styles.highlight}>Don't</span> sign a contract until talking with{" "}
+        <span style={styles.companyName}>Blue Spruce Concepts, Inc.</span>
+      </div>
       <div style={styles.container}>
         <div style={styles.bioContainer}>
-            <h2 style={styles.bioTitle}>Family-Owned and Operated</h2>
+            <h2 style={styles.bioTitle}>Why Choose Us</h2>
             <p style={styles.bioText}>
-            Blue Spruce Concepts Inc. has been Denver's metro area copier experts for over 35
-            years. We sell new, pre-owned, and lease options to fit your business
-            needs. Need service? Our technicians deliver same- or next-day copier
-            repairs and supplies to keep you running. As a small business ourselves, we
-            know your time matters—call today for fast, reliable copier solutions.
+            Blue Spruce Concepts, Inc. is proud to offer an outstanding 
+            selection of new and pre-owned copiers for sale or lease, 
+            featuring trusted brands such as Canon, Konica Minolta, and HP's. 
+            Thanks to our strong industry partnerships, we’re able to provide customers 
+            with exceptional deals on low-meter printers—giving you reliable, like-new 
+            equipment at a fraction of the cost. Our competitive pricing, ability to service 
+            nearly all makes and models, and commitment to customer satisfaction are just a few 
+            of the reasons we’re the premier choice for businesses across the Metro Denver area.
             </p>
             <button
             style={{...styles.contactButton,
@@ -159,13 +166,15 @@ export default function About() {
             animate={isInView ? { x: 0 } : { x: "100%" }} // Animate based on visibility
             transition={{ duration: 0.8, ease: "easeOut" }} // Smooth transition
             >
-            <div style={styles.clipartContainer2}>
-                <img
-                src="/clipart.png"
-                alt="copier clipart"
-                style={styles.clipart}
-                />
-            </div>
+              <iframe
+                width='505px'
+                height="405"
+                src="https://www.youtube.com/embed/jEw6Tntba44?autoplay=1&mute=1&loop=1&playlist=jEw6Tntba44"
+                title="YouTube video"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
         </motion.div>
        
       </div>
@@ -254,6 +263,28 @@ const styles = {
     minHeight: "300px", 
     // border: '1px solid black'
   },
+  dontSign: {
+    padding: "15px",
+    backgroundColor: "#f8f9fa",
+    borderRadius: "8px",
+    textAlign: "center",
+    fontFamily: "Helvetica, sans-serif",
+    fontSize: "18px",
+    color: "#333",
+    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+    maxWidth: "600px",
+    margin: "20px auto",
+    lineHeight: "1.5",
+  },
+  highlight: {
+    fontWeight: "bold",
+    color: "#dc3545", // Red for urgency
+  },
+  companyName: {
+    fontWeight: "600",
+    color: "#4263bb", // Blue for branding
+    
+  },
   bioContainer: {
     flex: 1,
     flexBasis: "50%", 
@@ -266,7 +297,7 @@ const styles = {
     // border: '1px solid black'
   },
   bioTitle: {
-    fontFamily: "'Georgia', serif",
+    fontFamily: "Helvetica, sans-serif",
     fontSize: "2em",
     color: "#2c3e50",
     marginBottom: "15px",
@@ -305,15 +336,7 @@ const styles = {
     position: "relative",
     // border: '1px solid black'
   },
-  clipartContainer2: {
-    width: "300px",
-    height: "300px",
-    borderRadius: "50%",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#f0f0f0",
-  },
+  
   clipart: {
     width: "350px",
     height: "350px",
@@ -325,7 +348,7 @@ const styles = {
     // border: '1px solid black'
   },
   reviewsTitle: {
-    fontFamily: "'Georgia', serif",
+    fontFamily: "'Helvetica', sans-serif",
     fontSize: "2em",
     color: "#2c3e50",
   },

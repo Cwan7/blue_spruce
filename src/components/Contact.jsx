@@ -256,7 +256,7 @@ const styles = {
       backgroundColor: '#4d8a96',
     },
     h1: {
-        fontFamily: "'Georgia', serif",
+        fontFamily: "'Helvetica', sans-serif",
         color: "#2c3e50",
     }
 }

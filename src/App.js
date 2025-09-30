@@ -40,7 +40,7 @@ function AppContent() {
                 About
               </Link>
               <Link
-                to="contact"
+                to="products"
                 smooth={true}
                 duration={500}
                 spy={true}
@@ -48,7 +48,7 @@ function AppContent() {
                 activeStyle={styles.navLinkActive}
                 offset={-80}
               >
-                Contact
+                Products
               </Link>
               <Link
                 to="services"
@@ -62,7 +62,7 @@ function AppContent() {
                 Services
               </Link>
               <Link
-                to="products"
+                to="contact"
                 smooth={true}
                 duration={500}
                 spy={true}
@@ -70,8 +70,9 @@ function AppContent() {
                 activeStyle={styles.navLinkActive}
                 offset={-80}
               >
-                Products
+                Contact
               </Link>
+              
             </nav>
           </div>
           <button style={styles.quoteButton}>Get a Quote</button>
@@ -80,7 +81,7 @@ function AppContent() {
 
       <main>
         <Routes>
-          <Route path="/" element={<><About /><Contact /><Services /><Products /></>} />
+          <Route path="/" element={<><About /><Products /><Services /><Contact /></>} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
         </Routes>

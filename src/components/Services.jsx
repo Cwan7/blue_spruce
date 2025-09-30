@@ -11,9 +11,9 @@ export default function Services() {
 const items = [
     "Copier And Printer Sales",
     "Copier And Printer Service",
-    "Copy Machine And Printer Rentals (Long- Or Short-Term)",
+    "Rentals (Long- Or Short-Term)",
     "Convention, Office, Or Event Rentals",
-    "IT Service",
+    "IT Service Copiers/Printers",
     "Supplies (In Stock And To Order)",
     "Leasing Options Available",
   ];
@@ -67,15 +67,12 @@ const items = [
           />
         </div>
         <div style={styles.serviceContainer}>
-          <h2 style={styles.serviceTitle}>Why Choose Us?</h2>
-          <p style={styles.serviceText}>Blue Spruce Concepts, Inc. is proud to offer an outstanding 
-            selection of new and pre-owned copiers for sale or lease, 
-            featuring trusted brands such as Canon, Konica Minolta, and Muratec. 
-            Thanks to our strong industry partnerships, we’re able to provide customers 
-            with exceptional deals on low-meter printers—giving you reliable, like-new 
-            equipment at a fraction of the cost. Our competitive pricing, ability to service 
-            nearly all makes and models, and commitment to customer satisfaction are just a few 
-            of the reasons we’re the premier choice for businesses across the Metro Denver area.</p>
+          <h2 style={styles.serviceTitle}>Family Owned & Operated</h2>
+          <p style={styles.serviceText}>Blue Spruce Concepts Inc. has been Denver's metro area copier experts for over 35
+            years. We sell new, pre-owned, and lease options to fit your business
+            needs. Need service? Our technicians deliver same- or next-day copier
+            repairs and supplies to keep you running. As a small business ourselves, we
+            know your time matters—call today for fast, reliable copier solutions.</p>
         </div>
       </div>
     </motion.section>
@@ -113,7 +110,7 @@ const styles = {
     maxWidth: '1000px',
   },
   serviceTitle: {
-    fontFamily: "'Georgia', serif",
+    fontFamily: "'Helvetica', sans-serif",
     fontSize: "2em",
     color: "#2c3e50",
     marginBottom: "15px",
@@ -140,7 +137,7 @@ const styles = {
     boxShadow: '0 4px 8px rgba(77, 138, 150, 0.5)',
   },
   bulletTitle: {
-    fontFamily: "'Georgia', serif",
+    fontFamily: "'Helvetica', sans-serif",
     fontSize: "1.6em",
     color: "#2c3e50",
     marginBottom: "20px",
