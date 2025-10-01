@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 
 export default function Products() {
@@ -56,62 +56,71 @@ export default function Products() {
     },
   ];
 
-  // Default to the first copier (id = 1)
   const [selectedCopier, setSelectedCopier] = useState(copiers[0]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSelectedCopier((prev) => {
+        const currentIndex = copiers.findIndex((copier) => copier.id === prev.id);
+        const nextIndex = (currentIndex + 1) % copiers.length;
+        return copiers[nextIndex];
+      });
+    }, 2500);
+
+    return () => clearInterval(interval);
+  }, [copiers]);
 
   return (
     <div style={styles.gradientContainer}>
-    <motion.section
-      ref={sectionRef}
-      id="products"
-      style={styles.container}
-      initial={{ opacity: 0 }}
-      animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-      transition={{ duration: 1, ease: "easeInOut" }}
-    >
-      <h2 style={styles.heading}>Our Products</h2>
+      <motion.section
+        ref={sectionRef}
+        id="products"
+        style={styles.container}
+        initial={{ opacity: 0 }}
+        animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+        transition={{ duration: 1, ease: "easeInOut" }}
+      >
+        <h2 style={styles.heading}>Our Products</h2>
 
-      {/* Horizontal series list */}
-      <div style={styles.seriesRow}>
-        {copiers.map((copier) => (
-          <div
-            key={copier.id}
-            style={{
-              ...styles.seriesItem,
-              ...(selectedCopier?.id === copier.id ? styles.seriesItemActive : {}),
-            }}
-            onClick={() => setSelectedCopier(copier)}
-          >
-            {copier.brand} {copier.series}
-          </div>
-        ))}
-      </div>
+        <div style={styles.seriesRow}>
+          {copiers.map((copier) => (
+            <div
+              key={copier.id}
+              style={{
+                ...styles.seriesItem,
+                ...(selectedCopier?.id === copier.id ? styles.seriesItemActive : {}),
+              }}
+              onClick={() => setSelectedCopier(copier)}
+            >
+              {copier.brand} {copier.series}
+            </div>
+          ))}
+        </div>
 
-      {/* Always visible modal */}
-      <div style={styles.modal}>
-        <img
-          src={selectedCopier.image}
-          alt={selectedCopier.series}
-          style={styles.modalImage}
-        />
-        <h3>
-          {selectedCopier.brand} {selectedCopier.series}
-        </h3>
-        <p>
-          <strong>Models:</strong>{" "}
-          {selectedCopier.models.join(", ") || "N/A"}
-        </p>
-        <p>{selectedCopier.text}</p>
-      </div>
-    </motion.section>
+        <div style={styles.modal}>
+          <img
+            src={selectedCopier.image}
+            alt={selectedCopier.series}
+            style={styles.modalImage}
+          />
+          <h3>
+            {selectedCopier.brand} {selectedCopier.series}
+          </h3>
+          <p>
+            <strong>Models:</strong>{" "}
+            {selectedCopier.models.join(", ") || "N/A"}
+          </p>
+          <p>{selectedCopier.text}</p>
+        </div>
+      </motion.section>
     </div>
   );
 }
 
 const styles = {
   gradientContainer: {
-      background: "linear-gradient(to bottom, #cdcdcd 0%, #ffffff 100%)",
-    },
+    background: "linear-gradient(to bottom, #cdcdcd 0%, #ffffff 100%)",
+  },
   container: {
     padding: "40px",
     textAlign: "center",
@@ -131,7 +140,7 @@ const styles = {
     padding: "12px 18px",
     borderRadius: "8px",
     backgroundColor: "#4263bb",
-    color: '#fff',
+    color: "#fff",
     cursor: "pointer",
     transition: "all 0.3s ease",
   },

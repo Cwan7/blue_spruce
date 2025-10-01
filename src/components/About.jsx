@@ -120,7 +120,7 @@ export default function About() {
 };
 
   return (
-    <section id="about" className="section">
+    <section id="about" style={styles.backgroundImage}>
       <div style={styles.logoContainer}>
         <img
           src="/BlueSpruceLogoWords.png"
@@ -241,6 +241,7 @@ export default function About() {
 }
 
 const styles = {
+  
   logoContainer: {
     display: "flex",
     justifyContent: "center",
@@ -275,10 +276,12 @@ const styles = {
     maxWidth: "600px",
     margin: "20px auto",
     lineHeight: "1.5",
+    fontStyle: "italic",
   },
   highlight: {
     fontWeight: "bold",
-    color: "#dc3545", // Red for urgency
+    color: "#dc3545", 
+    fontStyle: "italic",
   },
   companyName: {
     fontWeight: "600",
