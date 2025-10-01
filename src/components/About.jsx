@@ -156,7 +156,7 @@ export default function About() {
             onClick={() => window.location.href = "tel:+13035551234"}
             
             >
-            Call Us: (720) 641-1178
+            Call Us: (303) 278 7211
             </button>
         </div>
         <motion.div
