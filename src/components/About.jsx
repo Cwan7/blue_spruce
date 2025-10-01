@@ -128,10 +128,6 @@ export default function About() {
           style={styles.logo}
         />
       </div>
-      <div style={styles.dontSign}>
-        <span style={styles.highlight}>Don't</span> sign a contract until talking with{" "}
-        <span style={styles.companyName}>Blue Spruce Concepts, Inc.</span>
-      </div>
       <div style={styles.container}>
         <div style={styles.bioContainer}>
             <h2 style={styles.bioTitle}>Why Choose Us</h2>
@@ -177,6 +173,11 @@ export default function About() {
               ></iframe>
         </motion.div>
        
+      </div>
+      <div style={styles.dontSign}>
+        <span style={styles.highlight}>Don't</span> sign a contract until talking with{" "}
+        <span style={styles.companyName}>Blue Spruce Concepts, Inc.</span>
+        <p>Our expert technicians are ready to deliver tailored solutions for your office.</p>
       </div>
       <div style={styles.reviewsContainer}>
         <h3 style={styles.reviewsTitle}>What our customers say</h3>
