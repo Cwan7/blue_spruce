@@ -2,9 +2,9 @@ import React, { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import './About.css';
 
-export default function About() {
+export default function About({ isMenuOpen }) {
   const [startIndex, setStartIndex] = useState(0);
-  const cardsPerPage = window.innerWidth <= 650 ? 1 : 4;
+  const cardsPerPage = window.innerWidth <= 650 ? 2 : window.innerWidth <= 920 ? 3 : 4;
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false, margin: "-100px 0px -100px 0px" });
 
@@ -122,7 +122,7 @@ export default function About() {
   };
 
   return (
-    <section id="about" className="backgroundImage">
+    <section id="about" className={`backgroundImage ${isMenuOpen ? 'backgroundImage-menu-open' : ''}`}>
       <div className="logoContainer">
         <img
           src="/BlueSpruceLogoWords.png"

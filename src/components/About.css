@@ -1,4 +1,9 @@
-
+.backgroundImage {
+    padding-top: 20px;
+}
+.backgroundImage-menu-open {
+  padding-top: 80px; /* Adjust based on mobile menu height */
+}
 .logoContainer {
   display: flex;
   justify-content: center;
@@ -234,6 +239,11 @@
     max-width: 100%;
     padding: 15px;
   }
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    width: 90%;
+    gap: 15px;
+  }
 }
 @media (max-width: 800px) {
     .logo {
@@ -255,14 +265,11 @@
   .bioText {
     font-size: 1em;
   }
-
-  /* .clipartContainer1 iframe {
-    width: 100%;
-    height: 200px;
-  } */
-
+  .dontSign {
+    margin: 20px;
+  }
   .grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     width: 90%;
     gap: 15px;
   }

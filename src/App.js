@@ -141,7 +141,7 @@ function AppContent() {
 
       <main>
         <Routes>
-          <Route path="/" element={<><About /><Products /><Services /><Contact /></>} />
+          <Route path="/" element={<><About isMenuOpen={isMenuOpen}/><Products /><Services /><Contact /></>} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
         </Routes>
