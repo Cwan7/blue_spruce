@@ -132,6 +132,7 @@ const styles = {
     alignItems: "center",
     minHeight: "100%",
     minWidth: "200px",
+    maxWidth: '300px',
     padding: "20px",
     backgroundColor: "#fff",
     boxShadow: '0 4px 8px rgba(77, 138, 150, 0.5)',
