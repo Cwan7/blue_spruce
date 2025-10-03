@@ -12,7 +12,7 @@ export default function About() {
   const reviews = [
     {
       id: 1,
-      author: "Conor W",
+      author: "Henry W",
       rating: 5,
       date: "2025-04-28",
       profilePhoto: '/cowboy_conor.jpeg',
