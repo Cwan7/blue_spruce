@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
+import "./Products.css";
 
 export default function Products() {
   const sectionRef = useRef(null);
@@ -71,25 +72,22 @@ export default function Products() {
   }, [copiers]);
 
   return (
-    <div style={styles.gradientContainer}>
+    <div className="gradientContainer">
       <motion.section
         ref={sectionRef}
         id="products"
-        style={styles.container}
+        className="container"
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 1, ease: "easeInOut" }}
       >
-        <h2 style={styles.heading}>Our Products</h2>
+        <h2 className="heading">Our Products</h2>
 
-        <div style={styles.seriesRow}>
+        <div className="seriesRow">
           {copiers.map((copier) => (
             <div
               key={copier.id}
-              style={{
-                ...styles.seriesItem,
-                ...(selectedCopier?.id === copier.id ? styles.seriesItemActive : {}),
-              }}
+              className={`seriesItem ${selectedCopier?.id === copier.id ? 'seriesItemActive' : ''}`}
               onClick={() => setSelectedCopier(copier)}
             >
               {copier.brand} {copier.series}
@@ -97,11 +95,11 @@ export default function Products() {
           ))}
         </div>
 
-        <div style={styles.modal}>
+        <div className="modal">
           <img
             src={selectedCopier.image}
             alt={selectedCopier.series}
-            style={styles.modalImage}
+            className="modalImage"
           />
           <h3>
             {selectedCopier.brand} {selectedCopier.series}
@@ -116,53 +114,3 @@ export default function Products() {
     </div>
   );
 }
-
-const styles = {
-  gradientContainer: {
-    background: "linear-gradient(to bottom, #cdcdcd 0%, #ffffff 100%)",
-  },
-  container: {
-    padding: "40px",
-    textAlign: "center",
-  },
-  heading: {
-    fontSize: "2rem",
-    marginBottom: "20px",
-  },
-  seriesRow: {
-    display: "flex",
-    justifyContent: "center",
-    gap: "15px",
-    flexWrap: "wrap",
-    marginBottom: "30px",
-  },
-  seriesItem: {
-    padding: "12px 18px",
-    borderRadius: "8px",
-    backgroundColor: "#4263bb",
-    color: "#fff",
-    cursor: "pointer",
-    transition: "all 0.3s ease",
-  },
-  seriesItemActive: {
-    backgroundColor: "#4d8a96",
-    color: "#fff",
-    fontWeight: "bold",
-  },
-  modal: {
-    marginTop: "20px",
-    padding: "20px",
-    borderRadius: "8px",
-    backgroundColor: "#fff",
-    boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
-    maxWidth: "600px",
-    marginLeft: "auto",
-    marginRight: "auto",
-  },
-  modalImage: {
-    maxWidth: "100%",
-    height: "auto",
-    marginBottom: "15px",
-  },
-};
-
