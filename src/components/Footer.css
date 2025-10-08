@@ -1,0 +1,54 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: #8a8a8a;
+}
+
+.infoContainer {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.addressContainer,
+.hoursContainer {
+  padding: 20px;
+}
+
+.text {
+  margin: 8px 0;
+  color: #000;
+  font-size: 1em;
+}
+
+.footerLogoContainer {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.footerLogo {
+  height: auto;
+}
+
+.legalContainer {
+  margin-bottom: 40px;
+  margin-top: 10px;
+  border-top: 1px solid #000;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.link {
+  color: #4263bb;
+  text-decoration: none;
+  margin: 0 20px;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+@media (max-width: 540px) {
+    .footerLogoContainer {
+        height: 100px
+    }
+}

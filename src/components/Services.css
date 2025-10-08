@@ -169,10 +169,10 @@
   }
 
   .trophy {
-    height: 200px;
+    height: 180px;
   }
   .trophyContainer {
     padding: 0px 10px;
-    gap: 10px;
+    gap: 5px;
   }
 }
