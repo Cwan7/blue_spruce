@@ -79,7 +79,7 @@ export default function Products() {
       <motion.section
         ref={sectionRef}
         id="products"
-        className="container"
+        className="productsContainer"
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 1, ease: "easeInOut" }}

@@ -3,7 +3,7 @@ import './Footer.css';
 
 export default function Footer() {
   return (
-    <div className="container">
+    <div className="footerContainer">
       <div className="footerLogoContainer">
         <img
           src="/BlueSpruceLogoWords.png"

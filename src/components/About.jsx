@@ -130,7 +130,7 @@ export default function About({ isMenuOpen }) {
           className="logo"
         />
       </div>
-      <div className="container">
+      <div className="aboutContainer">
         <div className="bioContainer">
           <h2 className="bioTitle">Why Choose Us</h2>
           <p className="bioText">
