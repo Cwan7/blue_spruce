@@ -171,4 +171,7 @@
   .trophy {
     height: 200px;
   }
+  .trophyContainer {
+    padding: 0px 10px;
+  }
 }
