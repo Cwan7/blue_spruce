@@ -58,18 +58,21 @@ export default function Products() {
   ];
 
   const [selectedCopier, setSelectedCopier] = useState(copiers[0]);
+  const [userSelected, setUserSelected] = useState(false);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setSelectedCopier((prev) => {
-        const currentIndex = copiers.findIndex((copier) => copier.id === prev.id);
-        const nextIndex = (currentIndex + 1) % copiers.length;
-        return copiers[nextIndex];
-      });
-    }, 2500);
+    if (!userSelected) {
+      const interval = setInterval(() => {
+        setSelectedCopier((prev) => {
+          const currentIndex = copiers.findIndex((copier) => copier.id === prev.id);
+          const nextIndex = (currentIndex + 1) % copiers.length;
+          return copiers[nextIndex];
+        });
+      }, 2500);
 
-    return () => clearInterval(interval);
-  }, [copiers]);
+      return () => clearInterval(interval);
+    }
+  }, [copiers, userSelected]);
 
   return (
     <div className="gradientContainer">
@@ -88,7 +91,7 @@ export default function Products() {
             <div
               key={copier.id}
               className={`seriesItem ${selectedCopier?.id === copier.id ? 'seriesItemActive' : ''}`}
-              onClick={() => setSelectedCopier(copier)}
+              onClick={() => {setSelectedCopier(copier); setUserSelected(true)}}
             >
               {copier.brand} {copier.series}
             </div>
