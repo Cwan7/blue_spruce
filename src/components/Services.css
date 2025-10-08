@@ -173,5 +173,6 @@
   }
   .trophyContainer {
     padding: 0px 10px;
+    gap: 10px;
   }
 }
