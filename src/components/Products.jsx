@@ -75,7 +75,7 @@ export default function Products() {
   }, [copiers, userSelected]);
 
   return (
-    <div className="gradientContainer">
+    <div className="productsGradientContainer">
       <motion.section
         ref={sectionRef}
         id="products"
