@@ -13,7 +13,7 @@ export default function Products() {
       series: "ImageRunner Advance C5500",
       models: ["C5560i", "C5550i", "C5540i", "C5535i"],
       image: "/copier-C5500.jpeg",
-      text: "The Canon ImageRunner Advance C5500 series is a high-performance color multifunction printer designed for busy offices, offering fast print speeds and advanced workflow features.",
+      text: "The Canon ImageRunner Advance C5500 series is a high-performance color multifunction printer designed for busy offices, offering fast print speeds.",
     },
     {
       id: 2,

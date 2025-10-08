@@ -45,20 +45,54 @@
   border-radius: 8px;
   background-color: #fff;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  max-width: 600px;
+  width: 600px;
+  min-height: 500px;
+  max-height: 550px;
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
 }
 
 .modalImage {
-  max-width: 100%;
-  height: auto;
+  width: 100%;
+  height: 300px;
+  object-fit: contain;
   margin-bottom: 15px;
+}
+
+.modalText {
+  font-size: 1em;
+  color: #333;
+  line-height: 1.5;
+  max-height: 120px;
+  overflow-y: auto;
+  text-align: center;
+  width: 100%;
 }
 
 @media (max-width: 750px) {
   .seriesItem {
     padding: 8px 12px;
     font-size: 0.9em;
+  }
+
+  .modal {
+    width: 100%;
+    min-height: 400px;
+    max-height: 450px;
+    padding: 15px;
+  }
+
+  .modalImage {
+    height: 200px;
+  }
+
+  .modalText {
+    max-height: 100px;
   }
 }

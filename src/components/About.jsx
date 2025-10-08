@@ -154,7 +154,7 @@ export default function About({ isMenuOpen }) {
           ref={ref}
           className="clipartContainer1"
           initial={{ x: "100%" }}
-          animate={isInView ? { x: 0 } : { x: "25%" }}
+          animate={isInView ? { x: 0 } : { x: "5%" }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <iframe

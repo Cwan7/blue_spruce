@@ -1,9 +1,11 @@
 .backgroundImage {
-    padding-top: 20px;
+  padding-top: 20px;
 }
+
 .backgroundImage-menu-open {
-  padding-top: 80px; /* Adjust based on mobile menu height */
+  padding-top: 80px;
 }
+
 .logoContainer {
   display: flex;
   justify-content: center;
@@ -15,6 +17,7 @@
 
 .logo {
   height: 250px;
+  max-width: 100%;
 }
 
 .aboutContainer {
@@ -26,6 +29,7 @@
   padding: 60px;
   gap: 30px;
   min-height: 300px;
+  box-sizing: border-box;
 }
 
 .dontSign {
@@ -62,6 +66,7 @@
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   text-align: center;
+  box-sizing: border-box;
 }
 
 .bioTitle {
@@ -106,11 +111,13 @@
   align-items: center;
   min-height: 300px;
   position: relative;
+  box-sizing: border-box;
 }
 
 .clipart {
-  width: 350px;
-  height: 350px;
+  max-width: 100%;
+  height: auto;
+  max-height: 350px;
 }
 
 .reviewsContainer {
@@ -132,6 +139,8 @@
   justify-content: center;
   margin-top: 20px;
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .grid {
@@ -139,6 +148,8 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   width: 80%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .card {
@@ -148,6 +159,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   text-align: center;
   transition: outline 0.3s, box-shadow 0.3s;
+  box-sizing: border-box;
 }
 
 .card:hover {
@@ -225,39 +237,61 @@
 .reviewButton:hover {
   background-color: #4d8a96;
 }
+
 @media (max-width: 920px) {
-.container {
+  .aboutContainer {
     flex-direction: column;
     padding: 20px;
     gap: 20px;
+    max-width: 100%;
   }
-   .bioContainer {
+
+  .bioContainer {
     max-width: 100%;
     padding: 15px;
   }
+
   .clipartContainer1 {
     max-width: 100%;
     padding: 15px;
   }
+
   .grid {
     grid-template-columns: repeat(3, 1fr);
-    width: 90%;
+    width: 100%;
+    max-width: 100%;
     gap: 15px;
+    padding: 0 10px;
+  }
+
+  .dontSign {
+    margin: 20px 10px;
+    max-width: 100%;
+  }
+
+  .clipart {
+    max-width: 100%;
+    max-height: 250px;
   }
 }
+
 @media (max-width: 800px) {
-    .logo {
-        height: 175px;
-    }
+  .logo {
+    height: 175px;
+    max-width: 100%;
+  }
 }
+
 @media (max-width: 650px) {
   .logo {
     height: 125px;
+    max-width: 100%;
   }
 
   .logoContainer {
     padding-top: 60px;
   }
+
   .bioTitle {
     font-size: 1.5em;
   }
@@ -265,13 +299,17 @@
   .bioText {
     font-size: 1em;
   }
+
   .dontSign {
-    margin: 20px;
+    margin: 20px 10px;
   }
+
   .grid {
     grid-template-columns: repeat(2, 1fr);
-    width: 90%;
+    width: 100%;
+    max-width: 100%;
     gap: 15px;
+    padding: 0 10px;
   }
 
   .card {
@@ -291,5 +329,30 @@
   .reviewButton {
     padding: 8px 16px;
     font-size: 0.9em;
+  }
+}
+
+@media (max-width: 540px) {
+  .clipart {
+    max-width: 100%;
+    max-height: 200px;
+  }
+
+  .aboutContainer {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .bioContainer {
+    padding: 10px;
+  }
+
+  .clipartContainer1 {
+    padding: 10px;
+  }
+
+  .dontSign {
+    margin: 10px;
+    font-size: 16px;
   }
 }
