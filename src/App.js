@@ -79,7 +79,16 @@ function AppContent() {
               </Link>
             </nav>
           </div>
-          <button className="quoteButton">Get a Quote</button>
+          <Link
+            to="contact"
+            smooth={true}
+            duration={500}
+            spy={true}
+            className="quoteButton"
+            offset={-80}
+          >
+            Get a Quote
+          </Link>
           <div className="hamburger">
             <span className="menuIcon" onClick={toggleMenu}>
               <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#ffffff">
