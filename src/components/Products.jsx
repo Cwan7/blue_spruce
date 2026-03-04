@@ -2,11 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import "./Products.css";
 
-export default function Products() {
-  const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: false, margin: "-100px" });
-
-  const copiers = [
+const copiers = [
     {
       id: 1,
       brand: "Canon",
@@ -57,6 +53,12 @@ export default function Products() {
     },
   ];
 
+export default function Products() {
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: false, margin: "-100px" });
+
+  
+
   const [selectedCopier, setSelectedCopier] = useState(copiers[0]);
   const [userSelected, setUserSelected] = useState(false);
 
@@ -72,7 +74,7 @@ export default function Products() {
 
       return () => clearInterval(interval);
     }
-  }, [copiers, userSelected]);
+  }, [userSelected]);
 
   return (
     <div className="productsGradientContainer">

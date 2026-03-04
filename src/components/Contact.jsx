@@ -157,87 +157,87 @@ export default function Contact() {
     </div>
   );
 }
-const styles = {
-    gradientContainer: {
-      background: "linear-gradient(to bottom, #cdcdcd 0%, #ffffff 100%)",
-    },
-    container: {
-        display: "flex",
-        flexDirection: "row",
-        minHeight: "500px",
-    },
-    rightContainer: {
-      flex: 1,
-      padding: '20px',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: "center",
-    },
-    leftContainer: {
-      flex: 1,
-      padding: "20px 40px",
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      justifyContent: "center",
-    },
-    map: {
-      flex: 1,
-      width: '100%',
-      border: 0,
-      borderRadius: '8px',
-      maxWidth: '600px',
-    },
-    forumContainer: {
-      maxWidth: '600px',
-      width: '100%',
-      padding: '20px',
-      backgroundColor: '#7bc2c5',
-      borderRadius: '8px',
-      boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
-    },
-    label: {
-      display: 'block',
-      marginBottom: '5px',
-      fontSize: '1em',
-      color: '#333',
-      fontWeight: 'bold',
-    },
-    input: {
-      width: '100%',
-      padding: '8px',
-      marginBottom: '15px',
-      border: '1px solid #ccc',
-      borderRadius: '4px',
-      boxSizing: 'border-box',
-      fontSize: '1em',
-    },
-    textarea: {
-      width: '100%',
-      padding: '8px',
-      marginBottom: '15px',
-      border: '1px solid #ccc',
-      borderRadius: '4px',
-      boxSizing: 'border-box',
-      fontSize: '1em',
-      minHeight: '100px',
-      resize: 'vertical',
-    },
-    button: {
-      backgroundColor: '#cdcdcd',
-      color: '#000',
-      padding: '10px 20px',
-      border: 'none',
-      borderRadius: '4px',
-      fontSize: '1em',
-      cursor: 'pointer',
-      boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
-    },
-    buttonHover: {
-      backgroundColor: '#4d8a96',
-    },
-    h1: {
-        fontFamily: "'Helvetica', sans-serif",
-        color: "#2c3e50",
-    }
-}
+// const styles = {
+//     gradientContainer: {
+//       background: "linear-gradient(to bottom, #cdcdcd 0%, #ffffff 100%)",
+//     },
+//     container: {
+//         display: "flex",
+//         flexDirection: "row",
+//         minHeight: "500px",
+//     },
+//     rightContainer: {
+//       flex: 1,
+//       padding: '20px',
+//       display: 'flex',
+//       flexDirection: 'column',
+//       alignItems: "center",
+//     },
+//     leftContainer: {
+//       flex: 1,
+//       padding: "20px 40px",
+//       display: "flex",
+//       flexDirection: "column",
+//       alignItems: "center",
+//       justifyContent: "center",
+//     },
+//     map: {
+//       flex: 1,
+//       width: '100%',
+//       border: 0,
+//       borderRadius: '8px',
+//       maxWidth: '600px',
+//     },
+//     forumContainer: {
+//       maxWidth: '600px',
+//       width: '100%',
+//       padding: '20px',
+//       backgroundColor: '#7bc2c5',
+//       borderRadius: '8px',
+//       boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+//     },
+//     label: {
+//       display: 'block',
+//       marginBottom: '5px',
+//       fontSize: '1em',
+//       color: '#333',
+//       fontWeight: 'bold',
+//     },
+//     input: {
+//       width: '100%',
+//       padding: '8px',
+//       marginBottom: '15px',
+//       border: '1px solid #ccc',
+//       borderRadius: '4px',
+//       boxSizing: 'border-box',
+//       fontSize: '1em',
+//     },
+//     textarea: {
+//       width: '100%',
+//       padding: '8px',
+//       marginBottom: '15px',
+//       border: '1px solid #ccc',
+//       borderRadius: '4px',
+//       boxSizing: 'border-box',
+//       fontSize: '1em',
+//       minHeight: '100px',
+//       resize: 'vertical',
+//     },
+//     button: {
+//       backgroundColor: '#cdcdcd',
+//       color: '#000',
+//       padding: '10px 20px',
+//       border: 'none',
+//       borderRadius: '4px',
+//       fontSize: '1em',
+//       cursor: 'pointer',
+//       boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
+//     },
+//     buttonHover: {
+//       backgroundColor: '#4d8a96',
+//     },
+//     h1: {
+//         fontFamily: "'Helvetica', sans-serif",
+//         color: "#2c3e50",
+//     }
+// }
