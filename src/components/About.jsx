@@ -132,16 +132,14 @@ export default function About({ isMenuOpen }) {
       </div>
       <div className="aboutContainer">
         <div className="bioContainer">
-          <h2 className="bioTitle">Why Choose Us</h2>
+          <h2 className="bioTitle">Short Term Rentals</h2>
           <p className="bioText">
-            Blue Spruce Concepts, Inc. is proud to offer an outstanding
-            selection of new and pre-owned copiers for sale or lease,
-            featuring trusted brands such as Canon, Konica Minolta, and HP's.
-            Thanks to our strong industry partnerships, we’re able to provide customers
-            with exceptional deals on low-meter printers—giving you reliable, like-new
-            equipment at a fraction of the cost. Our competitive pricing, ability to service
-            nearly all makes and models, and commitment to customer satisfaction are just a few
-            of the reasons we’re the premier choice for businesses across the Metro Denver area.
+            Blue Spruce Copy Machines provides reliable, short-term rentals of copiers, 
+            printers, and scanners for convention centers, hotels, trade shows, special events, 
+            business meetings, and temporary office locations—wherever you need them. 
+            With 40 years of industry experience, we understand the importance of dependable equipment and fast, 
+            responsive service. From a single machine to a complete temporary office setup, 
+            Blue Spruce Copy Machines delivers the equipment and support you need to keep your event or business running smoothly.
           </p>
           <button
             className="contactButton"
