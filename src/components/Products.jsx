@@ -38,7 +38,7 @@ const copiers = [
     {
       id: 5,
       brand: "Canon",
-      series: "ImageRunner Advance 525iF",
+      series: "ImageRunner Advance 527iF",
       models: [],
       image: "/copier-525if.jpeg",
       text: "The Canon 525iF is a compact black & white MFP that’s perfect for small businesses needing enterprise-level performance in a smaller footprint.",
@@ -46,10 +46,10 @@ const copiers = [
     {
       id: 6,
       brand: "Canon",
-      series: "ImageRunner Advance DX C257iF",
+      series: "ImageRunner Advance DX C3730",
       models: [],
-      image: "/copier-C257if.jpeg",
-      text: "The Canon DX C257iF is a compact color MFP designed for smaller offices, providing robust security, cloud features, and excellent color quality.",
+      image: "/copier-C3730.jpeg",
+      text: "The Canon imageRUNNER ADVANCE DX C3730i is a versatile color multifunction printer that’s perfect for businesses seeking high-quality printing and reliable performance in one efficient device.",
     },
   ];
 
